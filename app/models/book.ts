@@ -2,9 +2,9 @@ import { Table, Column, Model, DataType } from "sequelize-typescript";
 
 @Table({
   timestamps: true,
-  tableName: "users",
+  tableName: "books",
 })
-export class User extends Model {
+export class Book extends Model {
   @Column({
     type: DataType.INTEGER,
     primaryKey: true,
@@ -21,41 +21,37 @@ export class User extends Model {
   @Column({
     type: DataType.STRING,
     allowNull: false,
-    unique: true,
   })
-  email!: string;
+  writer_name!: string;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.FLOAT,
     allowNull: false,
   })
-  password!: string;
+  price!: number;
+  @Column({
+    type: DataType.NUMBER,
+    allowNull: false,
+  })
+  quantity!: number;
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  address!: string;
+  edition!: string;
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  state!: string;
+  ISBN!: string;
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  city!: string;
+  media!: string;
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  pin_code!: string;
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-    validate: {
-      isIn: [['admin', 'user']],
-    },
-    })
-  role!: string;
+  genre!: string;
 }
